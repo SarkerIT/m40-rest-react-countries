@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import Country from "../country/Country";
 import "./Countries.css";
 
+// shortcut for a component rsc + tab
+
 const Countries = () => {
   // declare the state
   const [countries, setCountries] = useState([]);

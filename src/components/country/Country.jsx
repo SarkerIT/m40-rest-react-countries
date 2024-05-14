@@ -17,8 +17,8 @@ const Country = ({ country }) => {
       <h4>Population: {population}</h4>
       <h3>Area: {area}</h3>
       <h4>Code: {cca3}</h4>
-      <button onClick={handleIsVisited}>Is Visited?</button>
-      {isVisited && "I have VIsited this country."}
+      <button onClick={handleIsVisited}>Visited? Click to mark</button>
+      {isVisited && "  I have VIsited this country."}
     </div>
   );
 };
