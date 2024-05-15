@@ -16,16 +16,36 @@ const Countries = () => {
       .then((data) => setCountries(data));
   }, []);
 
+  const [visitedCountries, setIsVisitedCountries] = useState([]);
+
+  const handleVisitedCountries = (country) => {
+    console.log(country);
+    console.log(`add to visited list`, { country });
+    const newVisitedCountries = [...visitedCountries, country];
+    setIsVisitedCountries(newVisitedCountries);
+  };
+
   return (
     <div>
       <h2>Total Countries: {countries.length}</h2>
+      <hr />
+      <div className="visited-countries">
+        <h3>My total visited countries: {visitedCountries.length}</h3>
+      </div>
 
-      <h3>Visited countries: </h3>
+      {visitedCountries.map((country) => (
+        <div>
+          <li key={country.cca3}>{country.name.common}</li>
+        </div>
+      ))}
+      <hr />
       <div className="country-container">
         {countries.map((country) => (
-          <Country key={country.cca3} country={country}>
-            {" "}
-          </Country>
+          <Country
+            key={country.cca3}
+            country={country}
+            handleVisitedCountries={handleVisitedCountries}
+          ></Country>
         ))}
       </div>
     </div>
